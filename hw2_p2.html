@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Homework2-p2</title>
+<style>
+body { font-family: Times New Roman; font-size: 20px; text-align: center; background-color: #f5f5dc;}
+.body { width: 550px; margin: 0px auto; }
+textarea { font-family: Times New Roman; font-size: 20px; }
+input {text-align: right;}
+</style>
+
+<script>
+function process()
+{
+var number1, number2, number3, n1, n2, n3, sum, avg, product, small, large;
+number1 = document.forms["myform"].elements["num1"].value;
+number2 = document.forms["myform"].elements["num2"].value;
+number3 = document.forms["myform"].elements["num3"].value;
+n1 = parseInt(number1);
+n2 = parseInt(number2);
+n3 = parseInt(number3);
+
+if(!isNaN(n1) && !isNaN(n2)&& !isNaN(n3)){
+	sum = n1 + n2 + n3;
+	avg = parseInt(sum/3);
+	product = n1 * n2 * n3;
+	small = Math.min(n1, n2, n3);
+	large = Math.max(n1, n2, n3);
+	document.forms["myform"].elements["result"].value = ("The inputted numbers were " + n1 + ", " + n2 + ", " + n3 + "\nThe sum of the integers was " + sum + "\nThe average of the integers was " + avg + "\nThe product of the integers was " + product + "\nThe smallest of the integers was " + small + "\nThe largest of the integers was " + large)
+} else{
+	document.forms["myform"].elements["result"].value = ("Error: The inputted number(s) was not number")
+}
+}
+</script>
+
+
+</head>
+<body>
+<section class="body">
+
+<h2>Homework 2 Part2</h2>
+<br><br>
+
+<form name="myform">
+<table>
+<tr>
+<td>First Number:</td>
+<td><input type="text" name="num1" size="10"></td>
+</tr>
+<tr>
+<td>Second Number:</td>
+<td><input type="text" name="num2" size="10"></td>
+</tr>
+<td>Third Number:</td>
+<td><input type="text" name="num3" size="10"></td>
+</tr>
+</table>
+<br> Results:
+<textarea rows="6" cols="40" name="result">
+</textarea>
+<br><br>
+<input type="button" onclick="process()" value="SUBMIT">
+<input type="reset" value="RESET">
+</form>
+<br><br><br><br>
+<footer>
+	    <p> <a href="hw2.html">Return to Chapter 2 index page</a></p>
+
+</footer>
+</section>
+</body>
+</html>
+
