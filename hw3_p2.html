@@ -49,19 +49,19 @@ else {
     a_2 = new Intl.NumberFormat().format((q_2P * 12.75).toFixed(2));
     a_3 = new Intl.NumberFormat().format((q_3P * 9.95).toFixed(2));
     a_4 = new Intl.NumberFormat().format((q_4P * 35.89).toFixed(2));
-    t_amount = new Intl.NumberFormat().format((a_1 + a_2 + a_3 + a_4).toFixed(2));
-    t_earn = new Intl.NumberFormat().format((250+(t_amount * .09 )).toFixed(2));
+    t_amount = new Intl.NumberFormat().format(((q_1P * 20.99)+(q_2P * 12.75)+(q_3P * 9.95)+(q_4P * 35.89)).toFixed(2));
+    t_earn = new Intl.NumberFormat().format((250+(((q_1P * 20.99)+(q_2P * 12.75)+(q_3P * 9.95)+(q_4P * 35.89))* .09 )).toFixed(2));
     
     var htmlOutput = "";
 
     htmlOutput += "<table>";
-    htmlOutput += "<tr><th>Item #</th><th>Price</th><th>Qty Sold</th><th>Total</th></tr>";
+    htmlOutput += "<tr><th>Item #</th><td><b>Price</b></td><td><b>Qty Sold</b></td><td><b>Total</b></td></tr>";
     htmlOutput += "<tr><th>1</th><td>$20.99</td><td>"+ q_1P +　"</td><td>"+ a_1 +　"</td></tr>";
-    htmlOutput += "<tr><th>1</th><td>$12.75</td><td>"+ q_2P +　"</td><td>"+ a_2 +　"</td></tr>";
-    htmlOutput += "<tr><th>1</th><td>$9.95</td><td>"+ q_3P +　"</td><td>"+ a_3 +　"</td></tr>";
-    htmlOutput += "<tr><th>1</th><td>$35.89</td><td>"+ q_4P +　"</td><td>"+ a_4 +　"</td></tr>";
-    htmlOutput += "<tr><th>Total Amount Sold </th><th></th><td>"+ t_amount + "</td></tr>";
-    htmlOutput += "<tr><th>Total weekly Earnnings </th><th></th><td>"+ t_earn + "</td></tr>";
+    htmlOutput += "<tr><th>2</th><td>$12.75</td><td>"+ q_2P +　"</td><td>"+ a_2 +　"</td></tr>";
+    htmlOutput += "<tr><th>3</th><td>$9.95</td><td>"+ q_3P +　"</td><td>"+ a_3 +　"</td></tr>";
+    htmlOutput += "<tr><th>4</th><td>$35.89</td><td>"+ q_4P +　"</td><td>"+ a_4 +　"</td></tr>";
+    htmlOutput += "<tr><th>Total Amount Sold </th><th></th><td></td><td><b>"+ t_amount + "</b></td></tr>";
+    htmlOutput += "<tr><th>Total weekly Earnnings </th><td></td><td></td><td><b>"+ t_earn + "</b></td></tr>";
     htmlOutput += "</table>";
 
 
@@ -116,7 +116,7 @@ document.getElementById("errOut").innerHTML = "";
 <br>
 <input type="button" onclick= "process1();" value="Submit" ><br><br>
 <input type="reset" value="Clear Form" onclick = "res();"><br><br>
-<br><br>
+<br>
 
 <div id ='theTable'></div>
 

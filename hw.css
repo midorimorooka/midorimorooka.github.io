@@ -57,7 +57,6 @@ section h3 {
 
 table { 
 	border: none; border-collapse: collapse; 
-	margin:auto;
 	align-items: left;
 	}
 
@@ -67,7 +66,8 @@ th {
 	}
 td { 
 	border: none; 
-	text-align: center;
+	text-align: right;
+	padding-left: 20px;
 	}
 
 
