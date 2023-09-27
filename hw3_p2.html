@@ -5,21 +5,12 @@
 <title>Homework3-p1</title>
 <link rel="stylesheet" href="hw.css">
 
-
-<!-- the tags to bring jQuery UI CSS file, jQuery .js file, and jQuery UI .js file -->
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
-
-<script>
-/*jQuery code for tooltip  */
-$(function() {
-$( document ).tooltip();
-});
-</script>
-
-
+<style>
+body{
+    text-align: left;
+    align-items: left;
+}
+</style>
 
 <script>
 function process1() {
@@ -72,9 +63,10 @@ else {
     htmlOutput += "<tr><th>Total weekly Earnnings </th><th></th><td>"+ t_earn + "</td></tr>";
     htmlOutput += "</table>";
 
+
 // Set the contents of the <div> block to the contents of htmlOutput
 
-    document.getElementById("theTable").innerHTML = htmlOutput;
+document.getElementById("theTable").innerHTML = htmlOutput;
 
 }
 }
@@ -98,22 +90,22 @@ document.getElementById("errOut").innerHTML = "";
 
 <tr>
 <td><label for="input_name">Seller's Name:</label></td> 
-<td><input type="text" name="input_name" id="input_name" size="10"></td>
-</tr><br>
+<td><input type="text" name="input_name" id="input_name" size="30"></td>
+</tr><br><br>
 <td> For each item type the quantity sold by the seller</td>
-</tr><br>
+</tr><br><br>
 <tr>
 <td><label for="input_q1">Item  1:</label></td> 
 <td><input type="text" name="input_q1" id="input_q1" size="10"></td>
-</tr><br>
+</tr><br><br>
 <tr>
 <td><label for="input_q2">Item  2:</label></td> 
 <td><input type="text" name="input_q2" id="input_q2" size="10"></td>
-</tr><br>
+</tr><br><br>
 <tr>
 <td><label for="input_q3">Item  3:</label></td> 
 <td><input type="text" name="input_q3" id="input_q3" size="10"></td>
-</tr><br>
+</tr><br><br>
 <tr>
 <td><label for="input_q4">Item  4:</label></td> 
 <td><input type="text" name="input_q4" id="input_q4" size="10"></td>
@@ -121,14 +113,11 @@ document.getElementById("errOut").innerHTML = "";
 
 <div id ="errOut"></div> 
 <br>
-<input type="button" onclick= "process1();" value="Submit" ><br>
-<input type="reset" value="Clear Form" onclick = "res()"><br>
+<input type="button" onclick= "process1();" value="Submit" ><br><br>
+<input type="reset" value="Clear Form" onclick = "res();"><br><br>
 <br><br>
 
-</form>
-<br>
-
-<div id ="theTable"></div>
+<div id ='theTable'></div>
 
 <br>
 </section>
