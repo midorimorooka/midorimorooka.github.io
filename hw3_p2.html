@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Homework3-p1</title>
+<link rel="stylesheet" href="hw.css">
+
+
+<!-- the tags to bring jQuery UI CSS file, jQuery .js file, and jQuery UI .js file -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+<script>
+/*jQuery code for tooltip  */
+$(function() {
+$( document ).tooltip();
+});
+</script>
+
+
+
+<script>
+function process1() {
+
+//Declare variables
+
+var s_name, q_1, q_2, q_3, q_4, q_1P, q_2P, q_3P, q_4P, a_1, a_2, a_3, a_4, t_amount, t_earn;
+
+var errMsg1="<span style='font-weight: bold; color: red; font-size: 20px;'>Invalid input </span>";
+
+//get values from form using getElementById
+
+s_name = document.getElementById("input_name").value;
+q_1 = document.getElementById("input_q1").value;
+q_2 = document.getElementById("input_q2").value;
+q_3 = document.getElementById("input_q3").value;
+q_4 = document.getElementById("input_q4").value;
+
+// Validate input - if not then alert error msg...else proceed
+
+if ( isNaN(q_1) || isNaN(q_2) || isNaN(q_3) || isNaN(q_4) || q_1=="" || q_2==""|| q_3=="" || q_4==""|| s_name =="")
+    {
+         document.getElementById("errOut").innerHTML = errMsg1;
+  }
+
+else {
+//Convert input string to numeric 
+    q_1P = parseInt(q_1); 
+    q_2P = parseInt(q_2);
+    q_3P = parseInt(q_3);
+    q_4P = parseInt(q_4);
+
+//Calculate amount and earnning
+    a_1 = new Intl.NumberFormat().format((q_1P * 20.99).toFixed(2));
+    a_2 = new Intl.NumberFormat().format((q_2P * 12.75).toFixed(2));
+    a_3 = new Intl.NumberFormat().format((q_3P * 9.95).toFixed(2));
+    a_4 = new Intl.NumberFormat().format((q_4P * 35.89).toFixed(2));
+    t_amount = new Intl.NumberFormat().format((a_1 + a_2 + a_3 + a_4).toFixed(2));
+    t_earn = new Intl.NumberFormat().format((250+(t_amount * .09 )).toFixed(2));
+    
+    var htmlOutput = "";
+
+    htmlOutput += "<table>";
+    htmlOutput += "<tr><th>Item #</th><th>Price</th><th>Qty Sold</th><th>Total</th></tr>";
+    htmlOutput += "<tr><th>1</th><td>$20.99</td><td>"+ q_1P +　"</td><td>"+ a_1 +　"</td></tr>";
+    htmlOutput += "<tr><th>1</th><td>$12.75</td><td>"+ q_2P +　"</td><td>"+ a_2 +　"</td></tr>";
+    htmlOutput += "<tr><th>1</th><td>$9.95</td><td>"+ q_3P +　"</td><td>"+ a_3 +　"</td></tr>";
+    htmlOutput += "<tr><th>1</th><td>$35.89</td><td>"+ q_4P +　"</td><td>"+ a_4 +　"</td></tr>";
+    htmlOutput += "<tr><th>Total Amount Sold </th><th></th><td>"+ t_amount + "</td></tr>";
+    htmlOutput += "<tr><th>Total weekly Earnnings </th><th></th><td>"+ t_earn + "</td></tr>";
+    htmlOutput += "</table>";
+
+// Set the contents of the <div> block to the contents of htmlOutput
+
+    document.getElementById("theTable").innerHTML = htmlOutput;
+
+}
+}
+</script>
+
+<Script>
+function res(){
+document.getElementById("theTable").innerHTML = "";
+document.getElementById("errOut").innerHTML = "";
+}
+</script>
+
+
+<body>
+<section class="body">
+
+<h2>Homework 3 Part2</h2>
+<br><br>
+
+<form name="myform">
+
+<tr>
+<td><label for="input_name">Seller's Name:</label></td> 
+<td><input type="text" name="input_name" id="input_name" size="10"></td>
+</tr><br>
+<td> For each item type the quantity sold by the seller</td>
+</tr><br>
+<tr>
+<td><label for="input_q1">Item  1:</label></td> 
+<td><input type="text" name="input_q1" id="input_q1" size="10"></td>
+</tr><br>
+<tr>
+<td><label for="input_q2">Item  2:</label></td> 
+<td><input type="text" name="input_q2" id="input_q2" size="10"></td>
+</tr><br>
+<tr>
+<td><label for="input_q3">Item  3:</label></td> 
+<td><input type="text" name="input_q3" id="input_q3" size="10"></td>
+</tr><br>
+<tr>
+<td><label for="input_q4">Item  4:</label></td> 
+<td><input type="text" name="input_q4" id="input_q4" size="10"></td>
+</tr><br>
+
+<div id ="errOut"></div> 
+<br>
+<input type="button" onclick= "process1();" value="Submit" ><br>
+<input type="reset" value="Clear Form" onclick = "res()"><br>
+<br><br>
+
+</form>
+<br>
+
+<div id ="theTable"></div>
+
+<br>
+</section>
+
+<footer>
+         <p> <a href="hw3.html">Return to Chapter 3 index page</a></p>
+
+</footer>
+
+</body>
+</html>
