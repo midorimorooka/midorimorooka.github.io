@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>ch4_Part2</title>
+<link rel="stylesheet" href="hw.css">
+</head>
+
+
+<body>
+
+<h2>Homework 4 Part2</h2>
+
+<br>
+
+<section class="table">
+<script type = "text/javascript">
+var amount = 0;
+var principal = 1000;
+var rate = 0.05
+
+for( var rate = 0.05; rate <= 0.07; rate +=0.01){ 
+	document.write("<table><tr><th>Year</th><th><b>Amount on deposit</b></th><th><b>Interest Rate</b></th></tr>"+ "<br>" );
+	for( var year =1; year <= 4; year += 1){
+    	amount = principal * (Math.pow((1+ rate), year)) ;
+    	document.write( "<tr><th>" + year + "</th>" ); 
+    	document.write( "<td>" + amount.toLocaleString(undefined, {maximumFractionDigits:2, minimumFractionDigits:2 }) + "</td> " ); 
+    	document.write( "<td>" + rate.toLocaleString(undefined, {maximumFractionDigits:2}) + "</td></tr>" ) ; 
+    }
+    
+    document.write( "</table><br><br>" ); 
+}
+
+</script>
+</section>
+<br>
+
+<footer>
+        <p> <a href="hw4.html">Return to Chapter 4 index page</a></p>
+
+</footer>
+
+</html>

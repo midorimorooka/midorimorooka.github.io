@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Homework4-p1</title>
+<link rel="stylesheet" href="hw.css">
+
+<body>
+<section class="body">
+
+<h2>Homework 4 Part1</h2>
+
+<br><br>
+
+<script type = "text/javascript">
+var ans_1 = 1;
+document.write("The result of ");
+
+for( var number =5; number <= 25; number += 4){
+    ans_1 *= number;
+    document.write( number); 
+
+    if( number <25){ 
+        document.write( " * ");
+    }
+}
+ans_1_s = ans_1.toLocaleString();
+document.write( "  is  " + ans_1_s );
+</script>
+
+<br><br>
+
+<script type = "text/javascript">
+var ans_2 = 0;
+document.write("The result of ");
+
+for( var number =5; number <= 25; number += 4){
+    ans_2 += number;
+    document.write( number); 
+
+    if( number <25){ 
+        document.write( " + ");
+    }
+}
+ans_2_s = ans_2.toLocaleString();
+document.write( "  is  " + ans_2_s );
+</script>
+
+<br><br>
+
+<script type = "text/javascript">
+var ans_3 = 1;
+var number = 3
+document.write("The result of ");
+
+do {
+    ans_3 *= number;
+    document.write( number); 
+    number += 3;
+    if( number <=18){ document.write( " * "); }
+}
+
+while (number <=18)
+
+
+ans_3_s = ans_3.toLocaleString();
+document.write( "  is  " + ans_3_s );
+</script>
+
+<br><br>
+
+<script type = "text/javascript">
+var ans_4 = 0;
+var number = 3
+document.write("The result of ");
+
+do {
+    ans_4 += number;
+    document.write( number); 
+    number += 3;
+    if( number <=18){ document.write( " + "); }
+}
+
+while (number <=18)
+
+
+ans_4_s = ans_4.toLocaleString();
+document.write( "  is  " + ans_4_s );
+</script>
+
+</section>
+<br><br>
+
+<footer>
+        <p> <a href="hw4.html">Return to Chapter 4 index page</a></p>
+
+</footer>
+
+</html>

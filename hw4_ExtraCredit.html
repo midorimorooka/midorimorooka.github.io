@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>ch4_ExtraCredit</title>
+<link rel="stylesheet" href="hw.css">
+
+<script>
+
+function process1() {
+
+//Declare variables
+var q_1=0, q_1p=0;
+var errMsg1 ="<span style='font-weight: bold; color: red; font-size: 20px;'>Invalid input </span>";
+
+//get values from form using getElementById
+
+q_1 = document.getElementById("input_q1").value;
+
+// Validate input - if not then alert error msg...else proceed
+
+if ( isNaN(q_1) || q_1=="" || q_1< 2 || q_1 > 10)
+    {
+         document.getElementById("errOut").innerHTML = errMsg1;
+  }
+else {
+    q_1P = parseInt(q_1); 
+    var htmlOutput = "";
+    var html_a = "*";
+    var html_b = "&nbsp;";
+
+    for( var num = 2; num <= q_1; num +=1 ){
+    	htmlOutput += html_a ;
+       	htmlOutput += html_b ; 	
+     }
+    htmlOutput += html_a ;
+    	htmlOutput += "<br>"; 
+
+    if( q_1 > 2) {
+        for( var num2 = 3; num2 <= q_1; num2 +=1 )
+       		 {
+    		htmlOutput += html_a;
+        	for( var num3 = 2; num3 <= q_1; num3 +=1 ){
+		    	htmlOutput += html_b;
+		    	htmlOutput += html_b;
+     			}
+        	htmlOutput += html_a;
+    		htmlOutput += "<br>"; 	
+    	}
+	}
+	
+    for( var num4 = 2; num4 <= q_1; num4 +=1 ){
+    	htmlOutput += html_a;
+    	htmlOutput += html_b;
+     }
+    htmlOutput += html_a ; 
+    htmlOutput += "<br>"; 
+
+    }
+
+// Set the contents of the <div> block to the contents of htmlOutput
+
+document.getElementById("Square").innerHTML = htmlOutput;
+
+}
+
+</script>
+
+<Script>
+function res(){
+document.getElementById("Square").innerHTML = "";
+document.getElementById("errOut").innerHTML = "";
+}
+</script>
+
+
+</head>
+
+<body>
+<section class="body">
+<h2>Homework 4 ExtraCredit</h2>
+<br><br>
+
+<form name="myform">
+
+<tr>
+<td><label for="input_q1">Enter a number:</label></td> 
+<td><input type="text" name="input_q1" id="input_q1" size="10"></td>
+</tr><br><br>
+
+<div id ="errOut"></div> 
+<br>
+
+<input type="button" onclick= "process1();" value="Submit" >
+<input type="reset" value="Clear Form" onclick = "res();"><br><br>
+<br>
+
+<!-- id of theTable is where the output will be written by the document.getElementById statement -->
+
+<div id="Square"></div>
+
+<br><br><br><br>
+
+<footer>
+	    <p> <a href="hw4.html">Return to Chapter 4 index page</a></p>
+
+</footer>
+</section>
+</body>
+</html>

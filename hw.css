@@ -55,19 +55,36 @@ section h3 {
 	text-align: center;
 }
 
+#Square {
+	align-items: center;
+	line-height: 75%;
+	font-weight: bold; 
+	color: blue;
+	font-size: 20;
+	letter-spacing: .1em;
+}
+
+
 table { 
-	border: none; border-collapse: collapse; 
-	align-items: left;
+	width: 50%;
+	margin: auto;
+	align-items: center;
+	border: 2px solid gray; border-collapse: collapse;
+	}
+
+tr:nth-child(2n) {
+	background-color: lightblue;	
 	}
 
 th { 
-	border: none; 
-	text-align: left;
+	border: 1px solid gray; 
+	text-align: center;
+	padding: 3px;
 	}
 td { 
-	border: none; 
+	border: 1px solid gray ; 
 	text-align: right;
-	padding-left: 20px;
+	padding: 3px;
 	}
 
 
@@ -78,6 +95,7 @@ textarea {
 
 div{
 	align-items: center;
+	padding-bottom: 0;	
 }
 
 /* the styles for the footer */
