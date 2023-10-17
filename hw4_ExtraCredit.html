@@ -23,6 +23,7 @@ q_1 = document.getElementById("input_q1").value;
 if ( isNaN(q_1) || q_1=="" || q_1< 2 || q_1 > 10)
     {
          document.getElementById("errOut").innerHTML = errMsg1;
+         htmlOutput = "" ; 	
   }
 else {
     q_1P = parseInt(q_1); 
