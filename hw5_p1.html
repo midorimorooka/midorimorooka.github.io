@@ -9,14 +9,24 @@
 function process(){
  
 
-  var input_name = document.forms["myform"].elements["name"].value; 
-  var input_age = document.forms["myform"].elements["age"].value; 
-  var input_browsers = document.forms["myform"].elements["browsers"].value; 
-  var input_movies = document.forms["myform"].elements["movies"].selectedIndex; 
+var input_name = document.forms["myform"].elements["name"].value; 
+var input_age = document.forms["myform"].elements["age"].value; 
+
+
+var ageChecked = false;
+for (var i=0; i<3; ++i) {
+    if (document.myform.age[i].checked) {
+         ageChecked = true;
+         break;
+       }
+ }
+
+
+var input_movies = document.forms["myform"].elements["movies"].selectedIndex; 
 
 
 
-  if (input_name == null || input_name == "" || input_age == null || input_browsers == null || input_movies <1)  {           
+if (input_name == null || input_name == "" || ageChecked == false || input_movies <1)  {           
     document.forms["myform"].elements["result"].value = ("Please enter your data");
     }  
 
@@ -64,10 +74,10 @@ function res() {
 <tr>
 <td>Browsers:</td>
 <td>
-<input type="checkbox" name="browsers" id="browser1" value="browser1"><label for="firefox"> Firefox</label><br>
-<input type="checkbox" name="browsers" id="browser2" value="browser2"><label for="edge"> Edge</label><br>
-<input type="checkbox" name="browsers" id="browser3" value="browser3"><label for="chrome"> Chrome</label><br>
-<input type="checkbox" name="browsers" id="browser4" value="browser4"><label for="safari"> Safari</label>
+<input type="checkbox" name="browsers[]" id="browser" value="Firefox"><label for="firefox"> Firefox</label><br>
+<input type="checkbox" name="browsers[]" id="browser" value="Edge"><label for="edge"> Edge</label><br>
+<input type="checkbox" name="browsers[]" id="browser" value="Chrome"><label for="chrome"> Chrome</label><br>
+<input type="checkbox" name="browsers[]" id="browser" value="Safari"><label for="safari"> Safari</label>
 </td>
 </tr>
 
