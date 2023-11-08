@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Homework5-p1</title>
+<link rel="stylesheet" href="hw.css">
+
+<script>
+function process(){
+ 
+
+  var input_name = document.forms["myform"].elements["name"].value; 
+  var input_age = document.forms["myform"].elements["age"].value; 
+  var input_browsers = document.forms["myform"].elements["browsers"].value; 
+  var input_movies = document.forms["myform"].elements["movies"].selectedIndex; 
+
+
+
+  if (input_name == null || input_name == "" || input_age == null || input_browsers == null || input_movies <1)  {           
+    document.forms["myform"].elements["result"].value = ("Please enter your data");
+    }  
+
+else {
+    document.forms["myform"].elements["result"].value = ("Thanks, your data was submitted!");
+    } 
+
+
+}  
+
+
+function res() {
+}
+
+</script>
+
+
+</head>
+
+<body>
+<section class="body">
+
+<h2>Homework 5 Part1</h2>
+<br><br>
+
+<br><br>
+<p>Enter Full Name, choose Age Group, Browsers and Movies. </p>
+<br>
+<form id="myform" name="myform">
+<table>
+
+<tr>
+<td>Full Name:</td>
+<td><input type="text" name="name" size="30"></td>
+</tr>
+
+<td>Age Group:</td>
+<td>
+<input type="radio" name="age" id="age1" value="age1"><label for="age1"> Less than 21</label><br>
+<input type="radio" name="age" id="age2" value="age2"><label for="age2"> 20 - 50</label><br>
+<input type="radio" name="age" id="age3" value="age3"><label for="age3"> Older than 50</label>
+</td>
+</tr>
+
+<tr>
+<td>Browsers:</td>
+<td>
+<input type="checkbox" name="browsers" id="browser1" value="browser1"><label for="firefox"> Firefox</label><br>
+<input type="checkbox" name="browsers" id="browser2" value="browser2"><label for="edge"> Edge</label><br>
+<input type="checkbox" name="browsers" id="browser3" value="browser3"><label for="chrome"> Chrome</label><br>
+<input type="checkbox" name="browsers" id="browser4" value="browser4"><label for="safari"> Safari</label>
+</td>
+</tr>
+
+<tr>
+<td>Movies:</td>
+<td>
+<select name="movies">
+<option value=" " >-----Choose one-----</option>
+<option value="action">Action</option>
+<option value="comedy">Comedy</option>
+<option value="drama">Drama</option>
+<option value="documentary">Documentary</option>
+<option value="science">Science Fiction</option>
+</td>
+</tr>
+
+</table>
+<br>
+<input type="button" onclick="process()" value="SUBMIT">
+<input type="reset" value="RESET">
+<br>
+<br> Results:<br>
+<textarea rows="6" cols="50" name="result">
+</textarea>
+</form>
+<br><br><br><br>
+
+<footer>
+        <p> <a href="hw5.html">Return to Chapter 5 index page</a></p>
+
+</footer>
+
+</html>

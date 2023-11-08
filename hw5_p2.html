@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Homework5-p2</title>
+<link rel="stylesheet" href="hw.css">
+
+</head>
+
+<body>
+<section class="body">
+
+<h2>Homework 5 Part2</h2>
+<br><br>
+
+<script>
+function goToNewPage(myForm) {
+    var myDestination = myForm.destinationList.options[myForm.destinationList.selectedIndex].value;
+    window.open( myDestination );
+}
+</script>
+
+
+</head>
+
+<body>
+<form>
+<p>Choose your destination (using onChange event handler)</p>
+<select name="destinationList" onChange="goToNewPage(this.form);">
+<option>Choose Destination:</option>
+<option value="http://www.yahoo.com/">Yahoo</option>
+<option value="http://www.w3.org/">W3C</option>
+<option value="https://collegeofsanmateo.edu//">College of San Mateo</option>
+</select>
+</form>
+
+<br><br>
+
+<form>
+<p>Choose your destination (using onClick event handler)</p>
+<select name="destinationList">
+<option value="http://www.yahoo.com/">Yahoo</option>
+<option value="http://www.w3.org/">W3C</option>
+<option value="https://collegeofsanmateo.edu/">College of San Mateo</option>
+</select>
+<input type="button" value="Go" onClick="goToNewPage(this.form);">
+</form>
+
+
+
+
+<br><br><br><br>
+
+<footer>
+        <p> <a href="hw5.html">Return to Chapter 5 index page</a></p>
+
+</footer>
+
+</html>
