@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Homework6-p1</title>
+<link rel="stylesheet" href="hw.css">
+
+
+    <script>
+                     
+         function roundNumber()
+         {
+            var re = new RegExp("^[0-9]{1,11}\.[0-9]{4,}$");
+            var errMsg = "You need to type a number with at least 4 decimals, please try again";
+
+
+          if ( (document.getElementById("number").value) == "" || (!(re.test(document.getElementById("number").value))) )
+              {
+               document.getElementById("output").value = "";
+               document.myForm.output.value = errMsg;
+
+              }
+            else {
+
+            var num = parseFloat
+               (document.getElementById("number").value);
+
+            document.myForm.output.value = 
+               "You typed number: " + num +  "\n" + 
+               "\n Rounded to the nearest integer = " + 
+                  roundToIntegerRound( num ) +
+               "\n Square root rounded to integer = " + 
+                  roundToSquareRoot( num ) +
+               "\n Rounded to the nearest 10th position = " + 
+                  roundToTenthsRound( num ) +
+               "\n Rounded to the nearest 100th position = " + 
+                  roundToHundredthsRound( num ) +
+               "\n Rounded to the nearest 1000th position = " + 
+                  roundTothousandthsRound( num );
+                 }
+
+          }
+
+         function roundToIntegerRound( number )
+         {
+            return( Math.round( number) );
+         }
+
+         function roundToSquareRoot( number )
+         {
+            return(Math.round( Math.sqrt( number )) );
+         }
+
+         function roundToTenthsRound( number )
+         {
+            return( Math.round( number * 10 ) / 10 );
+         }
+
+         function roundToHundredthsRound( number )
+         {
+            return( Math.round( number * 100 ) / 100 );
+          }
+        function roundTothousandthsRound( number )
+           {
+            return( Math.round( number * 1000 ) / 1000 );
+           }
+
+        function res() {    
+                       document.getElementById("number").focus();
+                       }
+    </script>
+</head>
+
+<body>
+
+<section class="body">
+
+<h2>Homework 6 Part1</h2>
+<br><br>
+<p>The Floating number Calculations </p>
+<p>Enter a number with at least 4decimal positions</p>
+
+      <form name="myForm">
+        <br>
+        <table>
+        <tr>
+        <td> <label for="number">Floating Number</label></td>
+        <td> <input type="number" id="number"> </td><br>
+        </tr>
+        </table>
+        <br>
+
+         <input type="button" value="Submit" onclick="roundNumber()">
+         <input type="reset" value="Clear" onClick="res();"><br>
+         <br>
+
+         <label for="comment">Result:</label><br>
+         <textarea name = "output" id="output" rows = "8" cols = "60" readonly>
+         </textarea><br>   
+      </form>
+      
+<br><br><br><br>
+
+<footer>
+        <p> <a href="hw6.html">Return to Chapter 6 index page</a></p>
+
+</footer>
+
+</section>
+</body>
+</html>

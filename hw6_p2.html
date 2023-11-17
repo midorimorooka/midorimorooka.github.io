@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Homework6-p2</title>
+<link rel="stylesheet" href="hw.css">
+
+
+ <script>
+
+         function search()
+         {
+            var count=0;
+            var stringToSearch=document.forms["myForm"].elements["content"].value;         
+            var key=document.getElementById("key").value.toLowerCase().charAt( 0 );
+            var key=key.toLowerCase();
+            var key_u=key.toUpperCase();
+
+            var stringToSearch=stringToSearch.toLowerCase(); 
+                 for (i=0; i < stringToSearch.length; i++)
+                     {
+
+                    if (stringToSearch.charAt(i) == key)
+                             count++;     
+                     }         
+      
+            if ( count == 0 ) {
+
+               var myText = "<html>\n";
+                myText += "<head>\n";
+                myText += "<title>Not found</title>\n";
+                myText += "</head>\n";
+                myText += "<body>\n";
+                myText += "<div align='center'>\n";
+                myText += "<h4> Search character  " + key + " / " + key_u + " not found in the content you typed </h4>\n";
+                myText += "<input type='button' value='Close Window' onclick='window.close()'>\n";
+                myText += "</div>\n";
+                myText += "</body>\n";
+                myText += "</html>";
+        
+              var errWindow = window.open("", "new_window", "top=220,left=50,width=300,height=100");
+          
+              errWindow.focus();
+              errWindow.document.write(myText);
+              errWindow.document.close();
+
+             document.getElementById("prod").value = "see popup window";
+                }
+
+           else{
+               document.getElementById("output").value=count + 
+                  " occurrence(s) of  " + key + " / " + key_u + " found";
+            }
+         }
+</script>
+
+</head>
+
+<body>
+
+<section class="body">
+
+<h2>Homework 6 Part2</h2>
+<br><br>
+<p>How many times the character shows up the content</p>
+
+
+<body onload="document.getElementById('content').focus();">
+<section class="body">
+      <form name="myForm">
+
+        <p>Enter your content</p><br>
+        <textarea name="content" rows="5" cols="60" autofocus>
+        </textarea><br><br>   
+         
+         <p>Enter a character to search for
+            <input id="key" type="text" size="1" maxlength="1"><br><br>
+            <input type="button" value="Search" onclick="search();">
+             <input type="reset" value="Reset" onClick="location.reload();">
+
+         <br><br>
+         
+         <p>Occurrences of search character in the contents:</p><br>
+            <textarea cols="60" rows="1" id="output"></textarea>
+         </p>
+      </form>
+</section>
+</body>
+
+
+      
+<br><br><br><br>
+
+<footer>
+        <p> <a href="hw6.html">Return to Chapter 6 index page</a></p>
+
+</footer>
+
+</section>
+</body>
+</html>

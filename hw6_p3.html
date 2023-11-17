@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Homework6-p3</title>
+<link rel="stylesheet" href="hw.css">
+
+
+ <script>
+         
+        $('input[name="completeNumber"]').mask('(000)000-0000');
+
+         function parseNumber() {
+       
+            var errMsg="zip code has wrong format - Please use (999)999-9999";     
+
+            var completeNumber = document.getElementById("input").value;
+
+
+
+        //    inputRegExp = /^(\d{3})(-\d{3})(-\d{4})$/;
+            
+            // test to see if input is in valid format using a regular excpression
+      
+            if ( ! inputRegExp.test(completeNumber))
+
+                document.getElementById("errOut").innerHTML = errMsg;
+
+            else  {  
+
+                   // split zip main and zip extension
+          //         var tokens = completeNumber.split( "-" );
+          //         var areaCode = tokens[ 0 ];
+          //         var firstPhone = tokens[ 1 ];
+          //         var lastPhone = tokens[ 2 ]; 
+                   var areaCode = completeNumber.substr( 1, 3 );
+                   var firstPhone = completeNumber.substr( 5, 7 );
+                   var lastPhone = completeNumber.substr( 9, 12 );
+
+
+                  // output zip main code
+                   document.getElementById("areaCode").value = areaCode;
+
+                  // output zip extension
+                  document.getElementById("firstPhone").value = firstPhone;
+
+                  //get firts 3 characters of zip main
+//                  zip3 = zipMain.substr( 0, 3 );
+                  document.getElementById("lastPhone").value = lastPhone;
+         
+                 }
+
+         }
+
+        function res() {   
+                       document.getElementById("errOut").innerHTML =""; 
+                       document.getElementById("input").focus();
+                       }
+</script>
+
+</head>
+
+<body>
+
+<section class="body">
+
+<h2>Homework 6 Part3</h2>
+<br><br>
+
+<p>Phone number</p>
+
+<body onload="document.getElementById('input').focus();">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $('input[name="completeNumber"]').mask('(000)000-0000');
+</script>
+
+<section class="body">
+
+<div id ="errOut"></div> 
+<br>
+      <form name="myForm">
+         <table>
+            <tr>
+               <td>Enter a phone number <br>
+                  [in the form (999)999-9999]
+               </td>
+               <td>
+                  <input id="input" type="text" size="14">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="2">
+                  <input type="button" value="Split" onclick="parseNumber()">
+               </td>
+            </tr>
+            <tr>
+               <td>Area Code:</td>
+               <td>
+                  <input id="areaCode" type="text" size="3">
+               </td>
+            </tr>
+           <tr>
+               <td>The first 3 digits of the phone number:</td>   
+               <td>
+                   <input id="firstPhone" type="text" size="3">
+               </td>
+           </tr>
+           <tr>
+               <td>The last 4 digits of the phone number:</td>
+                 <td>
+                   <input id="lastPhone" type="text" size="4">
+                 </td>
+               
+            </tr>
+         </table>
+         <br>
+         <input type="reset" value="Reset" onClick="res();">
+      </form>
+      
+<br><br><br><br>
+
+<footer>
+        <p> <a href="hw6.html">Return to Chapter 6 index page</a></p>
+
+</footer>
+
+</section>
+</body>
+</html>
