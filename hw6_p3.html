@@ -4,21 +4,15 @@
 <meta charset="utf-8">
 <title>Homework6-p3</title>
 <link rel="stylesheet" href="hw.css">
-
-
  <script>
          
-        $('input[name="completeNumber"]').mask('(000)000-0000');
-
          function parseNumber() {
        
-            var errMsg="zip code has wrong format - Please use (999)999-9999";     
+            var errMsg="Your input Phone number has wrong format - Please use (999) 999-9999";     
 
             var completeNumber = document.getElementById("input").value;
 
-
-
-        //    inputRegExp = /^(\d{3})(-\d{3})(-\d{4})$/;
+           inputRegExp = /^(\()(\d{3})(\))(\s)(\d{3})(-\d{4})$/;
             
             // test to see if input is in valid format using a regular excpression
       
@@ -29,23 +23,13 @@
             else  {  
 
                    // split zip main and zip extension
-          //         var tokens = completeNumber.split( "-" );
-          //         var areaCode = tokens[ 0 ];
-          //         var firstPhone = tokens[ 1 ];
-          //         var lastPhone = tokens[ 2 ]; 
                    var areaCode = completeNumber.substr( 1, 3 );
-                   var firstPhone = completeNumber.substr( 5, 7 );
-                   var lastPhone = completeNumber.substr( 9, 12 );
+                   var firstPhone = completeNumber.substr( 6, 3 );
+                   var lastPhone = completeNumber.substr( 10, 4 );
 
 
-                  // output zip main code
-                   document.getElementById("areaCode").value = areaCode;
-
-                  // output zip extension
+                  document.getElementById("areaCode").value = areaCode;
                   document.getElementById("firstPhone").value = firstPhone;
-
-                  //get firts 3 characters of zip main
-//                  zip3 = zipMain.substr( 0, 3 );
                   document.getElementById("lastPhone").value = lastPhone;
          
                  }
@@ -72,11 +56,6 @@
 <body onload="document.getElementById('input').focus();">
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-    $('input[name="completeNumber"]').mask('(000)000-0000');
-</script>
-
 <section class="body">
 
 <div id ="errOut"></div> 
@@ -85,7 +64,7 @@
          <table>
             <tr>
                <td>Enter a phone number <br>
-                  [in the form (999)999-9999]
+                  [in the form (999) 999-9999]
                </td>
                <td>
                   <input id="input" type="text" size="14">
