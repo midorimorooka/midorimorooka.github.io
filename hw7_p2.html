@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+<meta charset="utf-8">
+<meta name="description" content="cookies and input text box">
+<title>Homework7-p2</title>
+
+<script>
+
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=");
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1; 
+    c_end=document.cookie.indexOf(";",c_start);
+    if (c_end==-1) c_end=document.cookie.length;
+    return decodeURIComponent(document.cookie.substring(c_start,c_end));
+    } 
+  }
+return "";
+}
+
+function setCookie(c_name,value,expiredays)
+{var exdate=new Date();exdate.setDate(exdate.getDate()+expiredays);
+document.cookie=c_name+ "=" +encodeURIComponent(value)+
+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+}
+
+function checkCookie()
+{
+name=getCookie('name');
+if (name!=null && name!="")
+  {
+  document.getElementById('msg').innerHTML = 'Welcome again , ' + name + '!';
+  document.forms["myform"].elements["name"].value=name;
+  document.forms["myform"].elements["name"].blur();
+
+
+  }
+  else 
+  {  
+  name=document.myform.name.value;
+  if (name!=null && name!="")
+    {
+    setCookie('name',name,30);
+    document.getElementById('msg').innerHTML = 'Welcome , ' + name + '!';
+    document.forms["myform"].elements["name"].blur();
+    }
+  }
+}
+
+
+function deleteCookie() {
+  var name;
+
+  name=getCookie('name');
+  if (name!=null && name!="") {
+    setCookie('name',name,-1);
+    document.forms["myform"].elements["name"].value="";
+    document.getElementById('msg').innerHTML = 'Cookie deleted for ' + name + '!';
+  }
+}
+
+</script>
+
+ <style>
+      body {background-color: white;}
+      .body { width: 600px; margin: 0px auto;}
+      #msg { color: red; font-weight: bold; font-size: 1.3rem; }
+      
+</style>
+
+</head>
+
+<body>
+
+<section class="body">
+
+<h3>Homework7-p2</h3>
+
+<form id="myform" name="myform">
+
+<p><label for="name">Your Name:</label><input type="text" id="name" name="name" title="Please type your name carefully" 
+size="20" maxlength="20" onfocus="checkCookie()">
+</p>
+
+<input type="button" value="Submit" onclick="checkCookie();">
+
+<input type="reset" value="Reset"><br><br>
+
+<input type="button" value="Delete cookie" onclick="deleteCookie();">
+<p id="msg"></p>
+
+</form>
+
+<footer>
+        <p> <a href="hw7.html">Return to Chapter 7 index page</a></p>
+
+</footer>
+
+</section>
+</body>
+</html> 

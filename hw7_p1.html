@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+<meta charset="utf-8">
+<meta name="description" content="Exercise 1 miscellaneous using classname">
+<title>Homework7-p1</title>
+
+<script>
+/* Change background color using radio buttons:
+
+We need to link up the result of clicking a radio button with the
+script function switchStyle(style) and the class name styles of purple and yellow.
+
+*/
+function switchStyle(style) 
+{
+
+/* if the first radio button was checked then style will = 0, as the first element
+in the radio button array */
+
+    var body = document.getElementById("body");
+    if(style == 0) {
+        body.className = "green";
+    }
+    else if(style == 1) {
+        body.className = "yellow";
+    }
+    else if(style == 2) {
+        body.className = "red";
+    }
+}
+
+function switchFontStyle_underline(check_1) 
+{
+    var origTableObject = document.getElementById("originalTable");    
+    if(check_1 == 0) {
+        origTableObject.className  = "underline  basicTable";
+    }
+    else if(check_1 !== 0) {
+        origTableObject.className =  "normal_u basicTable";
+    }
+}
+
+function switchFontStyle_bold(check_2) 
+{
+    var origTableObject = document.getElementById("originalTable");    
+    if(check_2 == 0) {
+        origTableObject.className =  "bold basicTable";
+    }
+    else if(check_2 !== 0 ) {
+        origTableObject.className =  "normal_b basicTable";
+    }
+}
+
+function switchFontStyle_italic(check_3) 
+{
+    var origTableObject = document.getElementById("originalTable");    
+    if(check_3 == 0) {
+        origTableObject.className =  "italic basicTable";
+    }
+    else if(check_3 !== 0) {
+        origTableObject.className =  "normal_i basicTable";
+    }
+}
+
+
+function switchToOrig()
+{
+    
+    var origbody = document.getElementById("body");
+    origbody.className = "originalBody";
+
+   
+    var origTableObject = document.getElementById("originalTable");
+    origTableObject.className = "basicTable";
+}
+
+
+function selectFontSize()
+{      
+    var origTableObject = document.getElementById("originalTable");    
+    var selectedFontSize = document.getElementById('fontSizeDropDown').value;
+            
+    if (selectedFontSize == "small")
+    {
+        origTableObject.className = "small basicTable";
+    }
+    else if (selectedFontSize == "medium")
+    {
+        origTableObject.className = "medium basicTable";
+    }
+    else if (selectedFontSize == "large")
+    {
+        origTableObject.className = "large basicTable";
+    }           
+}
+</script>
+
+<style>
+body {
+	background-color: white;
+	color: white;
+}
+img {
+    display: block;
+    margin: 0 auto;
+}
+p {
+    text-align: center;
+	font-family: Georgia;
+	font-size: 18px;
+}
+p.main {
+	text-align: center;
+	font-family: Georgia;
+	font-size: 15px;
+	color: black;
+}
+h2 {
+    text-align: center;
+	font: 35px Georgia;
+	color: black ;
+}
+#content {
+	width:400px;
+	margin: 0px auto; 
+	padding: 50px;
+    text-align: center; 
+	background-color: white;
+	border-style: solid;
+    border-width: 2px;
+}  
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th{
+    padding: 5px;
+	background-color: white ;
+    color: black;
+}
+td {
+    padding: 5px;
+	background-color: white;
+    color: #000099;
+
+}
+
+.originalBody {
+     
+     background-color: white;  
+     font-family: Georgia;
+     color: #0000CC; 
+}
+#originalTable td{
+     text-align: left; 
+}
+.green {
+    background-color: #32a85a;
+}
+.yellow {
+    background-color: #fff347;
+}
+.red {
+    background-color: #ff3126;
+}
+
+
+.underline {text-decoration: underline;}
+.normal_u {text-decoration: none;}
+
+.bold {font-weight: bold;}
+.normal_b {font-weight: none;}
+
+.italic {font-style: italic;}
+.normal_i {font-style: none;}
+
+
+.small {
+    font-size: 10px;
+}
+.medium {
+    font-size: 14px;
+}
+.large {
+    font-size: 18px;
+}
+</style>
+</head>
+
+<body id="body" class="originalBody">
+
+<h2>Homework7-p1
+</h2>
+
+<section id="content">
+
+<form name="myform">
+<p class="main"><b>Customize the font and background:</b></p>
+<br>
+
+<table class="basicTable" id="originalTable">
+<tr>
+<td>
+Background: 
+<input type="radio" name="style" onclick="switchStyle(0)">Green
+<input type="radio" name="style" onclick="switchStyle(1)">Yellow
+<input type="radio" name="style" onclick="switchStyle(2)">Red
+</td>
+
+</tr>
+
+<tr>
+<td>
+Choose font style:
+<input type="checkbox" name="check_1" id= "check_1" onclick= "switchFontStyle_underline(0)" >Underline
+<input type="checkbox" name="check_2" id= "check_2" onclick= "switchFontStyle_bold(0)" >Bold
+<input type="checkbox" name="check_3" id= "check_3" onclick= "switchFontStyle_italic(0)" >Italic
+</td>
+</tr>  
+
+<tr>
+<td>
+Select font size: 
+<select name="fontSizeDropDown" id="fontSizeDropDown" onchange="selectFontSize()">
+
+<option  value="#">--Select font size--</option> 
+<option value="small">Small</option>                         
+<option value="medium">Medium</option>                        
+<option value="large">Large</option>       
+</select>
+</td>
+</tr>
+
+</table>
+</form>
+
+<br>
+<input type="button" value="Revert to original"  onclick="switchToOrig()">
+
+
+<footer>
+        <p> <a href="hw7.html">Return to Chapter 7 index page</a></p>
+
+</footer>
+
+     
+</section>
+</body>
+</html>
