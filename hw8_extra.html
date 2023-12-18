@@ -23,89 +23,35 @@ th,td {
 <h2>Homework8 - AJAX Application </h2>
 
 
-<button type="button" onclick="qrCreatePost()">Get QR Code</button>
+<button type="button" onclick="getResult()">Get Result</button>
 <br><br>
 
 <script>
 
-function qrCreatePost(){
-const data = JSON.stringify({
-  data: 'https://www.qrcode-monkey.com',
-  config: {
-    body: 'rounded-pointed',
-    eye: 'frame14',
-    eyeBall: 'ball16',
-    erf1: [],
-    erf2: [
-      'fh'
-    ],
-    erf3: [
-      'fv'
-    ],
-    brf1: [],
-    brf2: [
-      'fh'
-    ],
-    brf3: [
-      'fv'
-    ],
-    bodyColor: '#5C8B29',
-    bgColor: '#FFFFFF',
-    eye1Color: '#3F6B2B',
-    eye2Color: '#3F6B2B',
-    eye3Color: '#3F6B2B',
-    eyeBall1Color: '#60A541',
-    eyeBall2Color: '#60A541',
-    eyeBall3Color: '#60A541',
-    gradientColor1: '#5C8B29',
-    gradientColor2: '#25492F',
-    gradientType: 'radial',
-    gradientOnEyes: false,
-    logo: ''
-  },
-  size: 300,
-  download: false,
-  file: 'png'
-});
+function getResult(){
+const apiKey = 'your_openweathermap_api_key';
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}`;
 
-const xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+const outputElement = document.getElementById('weather-output');
 
-xhr.addEventListener('readystatechange', function () {
-  if (this.readyState === this.DONE) {
-    console.log(this.responseText);
-  }
-});
-
-xhr.open('POST', 'https://qrcode-monkey.p.rapidapi.com/qr/custom');
-xhr.setRequestHeader('content-type', 'application/json');
-xhr.setRequestHeader('X-RapidAPI-Key', 'SIGN-UP-FOR-KEY');
-xhr.setRequestHeader('X-RapidAPI-Host', 'qrcode-monkey.p.rapidapi.com');
-
-xhr.send(data);
+fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    const temperature = data.main.temp;
+    const description = data.weather[0].description;
+    const location = data.name;
+    outputElement.innerHTML = `<p>Temperature in ${location}: ${temperature}°C</p>
+                               <p>Weather: ${description}</p>`;
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
 }
-
-
-
-function qrCreate(){
-const data = null;
-
-const xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener('readystatechange', function () {
-  if (this.readyState === this.DONE) {
-    console.log(this.responseText);
-  }
-});
-
-xhr.open('GET', 'https://qrcode-monkey.p.rapidapi.com/qr/custom?data=https%3A%2F%2Fwww.qrcode-monkey.com&config=%7B%22bodyColor%22%3A%20%22%230277BD%22%2C%20%22body%22%3A%22mosaic%22%7D&download=true&file=png&size=600');
-xhr.setRequestHeader('X-RapidAPI-Key', 'SIGN-UP-FOR-KEY');
-xhr.setRequestHeader('X-RapidAPI-Host', 'qrcode-monkey.p.rapidapi.com');
-
-xhr.send(data);
-}
-
 
 </script>
 
