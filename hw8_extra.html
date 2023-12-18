@@ -4,63 +4,133 @@
 <head> 
 <meta charset="utf-8">
 <meta name="description" content="Exercise 1 miscellaneous using classname">
-<title>Homework8-p1</title>
-
-
-<style>
-table,th,td {
-  border : 1px solid black;
-  border-collapse: collapse;
-}
-th,td {
-  padding: 5px;
-}
-</style>
+<title>Homework8-Extra Credit</title>
 
 
 <body>
 
-<h2>Homework8 - AJAX Application </h2>
+<h2>Homework8 - API </h2>
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>  
 
-<button type="button" onclick="myfunction2()">Get Result</button>
-<p id="result"></p>
-<br><br>
+    <script type="text/javascript">
+      
+      var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://google-translate1.p.rapidapi.com/language/translate/v2",
+      "method": "POST",
+      "headers": {
+        "x-rapidapi-host": "google-translate1.p.rapidapi.com",
+        "x-rapidapi-key": "9d7eeb9f1amsh96eb036f7eb8611p129213jsn5bbad3f50911",
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "data": {
+        "source": "en",
+        "q": "Contact Form | Name | Contact Number | Email",
+        "target": ""
+      }
+      
+    }
 
-<script>
+    $(document).ready(function(){
 
-function myfunction2() {
-  const url = 'https://google-translate1.p.rapidapi.com/language/translate/v2';
-  const options = {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/x-www-form-urlencoded',
-      'Accept-Encoding': 'application/gzip',
-      'X-RapidAPI-Key': '9d7eeb9f1amsh96eb036f7eb8611p129213jsn5bbad3f50911',
-    ' X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
-    },
-    body: new URLSearchParams({
-      q: 'Hello, world!',
-      target: 'es',
-      source: 'en'
-    })
-  };
+        $(".dropdown-item").click(function(e){
 
-  try {
-    const response = await fetch(url, options);
-    const result = await response.text();
-    console.log(result);
-  } catch (error) {
-    console.error(error);
-  }
-  }
+          if($(this).attr("tolang") != 'en'){
 
+            settings.data.target = $(this).attr("tolang");
+            
+            fetchTranslation();
 
-</script>
+            $('button').html($(this).html());
 
+          } else {
 
+            updatePlaceholders(settings.data.q);
+
+            $('#langSel').html("Translate to");
+
+          } 
+
+        });
+
+    });
+
+    function fetchTranslation(){
+
+      $.ajax(settings).done(function (response) {
+        
+        console.log(response);
+
+        var translatedText = response.data.translations[0].translatedText;
+        
+        updatePlaceholders(translatedText);
+        
+
+      });
+
+    }
+
+    function updatePlaceholders(updateString){
+
+      var comp = updateString.split('|')
+
+      $('form > input').each(function(idx){
+
+        $(this).prop("placeholder", comp[idx+1].trim() );
+
+      });
+
+      $("#formHeading").html(comp[0]);
+
+    }
+
+    </script>
+  </head>
+<body>
+  <div class="container">
+  <div class="row">
+    <div class="col-sm">
+      
+    </div>
+    <div class="col-sm">
+        <div class="btn-group dropright translate">
+      <button id="langSel" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Translate to
+      </button>
+      <div class="dropdown-menu translate-option">
+        <a class="dropdown-item" href="#" tolang="en">English (default)</a>
+        <a class="dropdown-item" href="#" tolang="it">Italian</a>
+        <a class="dropdown-item" href="#" tolang="es">Spanish</a>
+        <a class="dropdown-item" href="#" tolang="de">German</a>
+      </div>
+    </div>
+    <h1 id="formHeading">
+        Contact Form
+    </h1>
+    <div>
+      <form action="">
+        <input type="text" name="name" class="formStyle" placeholder="Name" required />
+        <input type="text" name="email" class="formStyle" placeholder="Contact No." required />
+        <input type="email" name="email" class="formStyle" placeholder="Email" required />
+      </form>
+    </div>
+    </div>
+    <div class="col-sm">
+      
+    </div>
+  </div>
+</div>
+  
 </body>
-
 
 <footer>
         <p> <a href="hw8.html">Return to Chapter 8 index page</a></p>
