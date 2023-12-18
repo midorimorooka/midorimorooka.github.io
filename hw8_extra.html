@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+<meta charset="utf-8">
+<meta name="description" content="Exercise 1 miscellaneous using classname">
+<title>Homework8-p1</title>
+
+
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+
+
+<body>
+
+<h2>Homework8 - AJAX Application </h2>
+
+
+<button type="button" onclick="qrCreatePost()">Get QR Code</button>
+<br><br>
+
+<script>
+
+function qrCreatePost(){
+const data = JSON.stringify({
+  data: 'https://www.qrcode-monkey.com',
+  config: {
+    body: 'rounded-pointed',
+    eye: 'frame14',
+    eyeBall: 'ball16',
+    erf1: [],
+    erf2: [
+      'fh'
+    ],
+    erf3: [
+      'fv'
+    ],
+    brf1: [],
+    brf2: [
+      'fh'
+    ],
+    brf3: [
+      'fv'
+    ],
+    bodyColor: '#5C8B29',
+    bgColor: '#FFFFFF',
+    eye1Color: '#3F6B2B',
+    eye2Color: '#3F6B2B',
+    eye3Color: '#3F6B2B',
+    eyeBall1Color: '#60A541',
+    eyeBall2Color: '#60A541',
+    eyeBall3Color: '#60A541',
+    gradientColor1: '#5C8B29',
+    gradientColor2: '#25492F',
+    gradientType: 'radial',
+    gradientOnEyes: false,
+    logo: ''
+  },
+  size: 300,
+  download: false,
+  file: 'png'
+});
+
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener('readystatechange', function () {
+  if (this.readyState === this.DONE) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open('POST', 'https://qrcode-monkey.p.rapidapi.com/qr/custom');
+xhr.setRequestHeader('content-type', 'application/json');
+xhr.setRequestHeader('X-RapidAPI-Key', 'SIGN-UP-FOR-KEY');
+xhr.setRequestHeader('X-RapidAPI-Host', 'qrcode-monkey.p.rapidapi.com');
+
+xhr.send(data);
+}
+
+
+
+function qrCreate(){
+const data = null;
+
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener('readystatechange', function () {
+  if (this.readyState === this.DONE) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open('GET', 'https://qrcode-monkey.p.rapidapi.com/qr/custom?data=https%3A%2F%2Fwww.qrcode-monkey.com&config=%7B%22bodyColor%22%3A%20%22%230277BD%22%2C%20%22body%22%3A%22mosaic%22%7D&download=true&file=png&size=600');
+xhr.setRequestHeader('X-RapidAPI-Key', 'SIGN-UP-FOR-KEY');
+xhr.setRequestHeader('X-RapidAPI-Host', 'qrcode-monkey.p.rapidapi.com');
+
+xhr.send(data);
+}
+
+
+</script>
+
+
+</body>
+
+
+<footer>
+        <p> <a href="hw8.html">Return to Chapter 8 index page</a></p>
+
+</footer>
+
+
+</html>
