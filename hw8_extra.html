@@ -23,37 +23,37 @@ th,td {
 <h2>Homework8 - AJAX Application </h2>
 
 
-<button type="button" onclick="getResult()">Get Result</button>
+<button type="button" onclick="getResult()">Get CD collection</button>
 <p id="result"></p>
 <br><br>
 
 <script>
 
-function getResult(){
-const url = 'https://google-translate1.p.rapidapi.com/language/translate/v2';
-const options = {
-  method: 'POST',
-  headers: {
-    'content-type': 'application/x-www-form-urlencoded',
-    'Accept-Encoding': 'application/gzip',
-    'X-RapidAPI-Key': '9d7eeb9f1amsh96eb036f7eb8611p129213jsn5bbad3f50911',
-    'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
-  },
-  body: new URLSearchParams({
-    q: 'Hello, world!',
-    target: 'es',
-    source: 'en'
-  })
-};
+function getResult() {
+  const url = 'https://google-translate1.p.rapidapi.com/language/translate/v2';
+  const options = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded',
+      'Accept-Encoding': 'application/gzip',
+      'X-RapidAPI-Key': '9d7eeb9f1amsh96eb036f7eb8611p129213jsn5bbad3f50911',
+    ' X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
+    },
+    body: new URLSearchParams({
+      q: 'Hello, world!',
+      target: 'es',
+      source: 'en'
+    })
+  };
 
-try {
-  const response = await fetch(url, options);
-  const result = await response.text();
-  console.log(result);
-} catch (error) {
-  console.error(error);
-}
-}
+  try {
+    const response = await fetch(url, options);
+    const result = await response.text();
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+  }
 
 
 </script>
