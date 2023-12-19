@@ -26,7 +26,7 @@
             };
 
             // https://financialmodelingprep.com/developer/docs/realtime-stock-quote-api
-            let url = "https://financialmodelingprep.com/api/company/real-time-price/" + symbol + "?datatype=json";
+            let url = "https://financialmodelingprep.com/api/v3/search-name?query=" + symbol;
             $.getJSON(url, callback);
         });
     </script>
