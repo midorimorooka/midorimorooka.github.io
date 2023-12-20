@@ -1,42 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head> 
-<meta charset="utf-8">
-<meta name="description" content="Exercise 1 miscellaneous using classname">
-<title>Homework8-Extra Credit</title>
-
+<html>
 <body>
 
-    <h1>getting quotes</h1>
-    <p id="quotes"></p>
-    <p id="updated_at"></p>
+<h2>JavaScript Geolocation</h2>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            let symbol = 'amzn';
-            let callback = function (data) {
-                let strPrice = data.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-                // From https://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-currency-string-in-javascript
+<p>Click the button to get your coordinates.</p>
 
-                document.getElementById('quotes').textContent = data.symbol + ": $" + strPrice;
-                document.getElementById('updated_at').textContent = data.updated_at + '(UTC)';
-                alert('Stock Price: $' + strPrice + ' at ' + data.updated_at + '(UTC)');
-            };
+<button onclick="getLocation()">Try It</button>
 
-            // https://financialmodelingprep.com/developer/docs/realtime-stock-quote-api
-            let url = "https://financialmodelingprep.com/api/v3/search-name?query=" + symbol;
-            $.getJSON(url, callback);
-        });
-    </script>
+<p id="demo"></p>
+<p id="demo2"></p>
+
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  try {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } catch {
+    x.innerHTML = err;
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+</script>
+
+
+<script type="text/javascript">
+const x2 = document.getElementById("demo2");
+
+function showWeather(position) {
+  x2.innerHTML = "https://api.openweathermap.org/data/3.0/onecall/timemachine?lat= " + position.coords.latitude + 
+  "&lon= " + position.coords.longitude + "&dt=1643803200&appid={cc11edf15ab26cea18c566fa1fa34f02}";
+}
+
+
+</script>
+
+
 </body>
-</head>
-
-<footer>
-        <p> <a href="hw8.html">Return to Chapter 8 index page</a></p>
-
-</footer>
-
-
 </html>
+
