@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
+
+<head> 
+<meta charset="utf-8">
+<link rel="stylesheet" href="hw.css">
+<title>Homework8-extra</title>
+
+
+
 <body>
 
-<h2>JavaScript Geolocation</h2>
+<h2>Geolocation</h2>
 
 <p>Click the button to get your coordinates.</p>
 
@@ -36,12 +44,21 @@ const x2 = document.getElementById("demo2");
 
 function showWeather(position) {
   x2.innerHTML = "https://api.openweathermap.org/data/3.0/onecall?lat=" + position.coords.latitude + 
-  "&lon=" + position.coords.longitude + "&exclude=&appid=667cfc6dbdcc95d28a821ebcee08126b";
+  "&lon=" + position.coords.longitude + "&appid={667cfc6dbdcc95d28a821ebcee08126b}";
 }
 
 </script>
 
 
 </body>
+
+<br><br>
+<footer>
+        <p> <a href="hw8.html">Return to Chapter 8 index page</a></p>
+
+</footer>
+
+
+
 </html>
 
