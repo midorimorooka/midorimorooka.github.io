@@ -17,7 +17,6 @@
 <button onclick="getLocation()">Try It</button>
 
 <h3 id="demo"></h3>
-<h3 id="demo2"></h3>
 
 
 <script>
@@ -40,11 +39,19 @@ function showPosition(position) {
 
 
 <script>
-const x2 = document.getElementById("demo2");
+const xhr = new XMLHttpRequest();
 
-function showWeather(position) {
-  x2.innerHTML = "https://api.openweathermap.org/data/3.0/onecall?lat=" + position.coords.latitude + 
-  "&lon=" + position.coords.longitude + "&appid={667cfc6dbdcc95d28a821ebcee08126b}";
+http_a = "https://api.openweathermap.org/data/3.0/onecall?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid={667cfc6dbdcc95d28a821ebcee08126b}";
+xhr.open("GET", http_a);
+xhr.send();
+xhr.responseType = "json";
+xhr.onload = () => {
+  if (xhr. readyState== 4 && xhr.status == 200) {
+    const data = xhr.response;
+    console.log(data);
+  } else {
+    console.log(`Error: ${xhr.status}`);
+  }
 }
 
 </script>
