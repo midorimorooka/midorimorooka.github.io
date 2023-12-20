@@ -31,14 +31,13 @@ function showPosition(position) {
 </script>
 
 
-<script type="text/javascript">
+<script>
 const x2 = document.getElementById("demo2");
 
 function showWeather(position) {
-  x2.innerHTML = "https://api.openweathermap.org/data/3.0/onecall/timemachine?lat= " + position.coords.latitude + 
-  "&lon= " + position.coords.longitude + "&dt=1643803200&appid={cc11edf15ab26cea18c566fa1fa34f02}";
+  x2.innerHTML = "https://api.openweathermap.org/data/3.0/onecall?lat=" + position.coords.latitude + 
+  "&lon=" + position.coords.longitude + "&exclude=&appid=667cfc6dbdcc95d28a821ebcee08126b";
 }
-
 
 </script>
 
