@@ -14,6 +14,35 @@ body {
     margin: 0 auto 0;
 }
 
+h1{
+	padding-top: 1em;
+	padding-bottom: 2em;
+	text-align: center;
+}
+h2 {
+	font-size: 180%;
+	color: #blue;
+	padding-left: 2em;
+}
+h3 {
+	font-size: 100%;
+	font-style: italic;
+}
+p {
+	font-size: 100%;
+	font-style: italic;
+	text-align: left;
+}
+a {
+	font-size: 100%;
+	font-style: italic;
+	text-align: left;
+}
+
+
+
+
+
 /* the styles for the header */
 header{
 	padding-top: 1em;
@@ -107,4 +136,5 @@ footer p {
 	text-align: center;
 	padding-top: 1em;
 	padding-bottom: 1em;
+	font-size: 100%;
 }
