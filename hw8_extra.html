@@ -35,14 +35,11 @@ function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
 
-  lat = position.coords.latitude;
-lon = position.coords.longitude
 }
 
+const xhr = new XMLHttpRequest(position);
 
-const xhr = new XMLHttpRequest();
-
-xhr.open("GET","https://api.openweathermap.org/data/3.0/onecall?lat=" + lat + "&lon=" + lon + "&appid={667cfc6dbdcc95d28a821ebcee08126b}" );
+xhr.open("GET","https://api.openweathermap.org/data/3.0/onecall?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid={667cfc6dbdcc95d28a821ebcee08126b}" );
 xhr.send();
 xhr.responseType = "json";
 xhr.onload = () => {
