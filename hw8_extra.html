@@ -11,13 +11,14 @@
 <body>
 
 <h2>Geolocation</h2>
-
+<br><br>
 <h3>Click the button to get your coordinates.</h3>
 
+<br>
 <button onclick="getLocation()">Try It</button>
-
+<br><br>
 <h3 id="demo"></h3>
-
+<br>
 
 <script>
 const x = document.getElementById("demo");
@@ -41,8 +42,7 @@ function showPosition(position) {
 <script>
 const xhr = new XMLHttpRequest();
 
-http_a = "https://api.openweathermap.org/data/3.0/onecall?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid={667cfc6dbdcc95d28a821ebcee08126b}";
-xhr.open("GET", http_a);
+xhr.open("GET","https://api.openweathermap.org/data/3.0/onecall?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid={667cfc6dbdcc95d28a821ebcee08126b}" );
 xhr.send();
 xhr.responseType = "json";
 xhr.onload = () => {
